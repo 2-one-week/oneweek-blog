@@ -39,6 +39,15 @@ const HeaderContainer = styled.section<{ path: string }>`
   a {
     margin: 0 20px;
   }
+  @media (max-width: 500px) {
+    margin: 0;
+    a {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0;
+    }
+  }
 `;
 
 const HeaderLink = styled(Link)<{ bold?: string }>`

@@ -9,7 +9,11 @@ const Navigation = styled.section`
   margin: 0 20px;
 
   @media (max-width: 500px) {
-    margin-left: 20px;
+    justify-content: space-between;
+    margin: 0;
+    h1 {
+      margin: 10px 0;
+    }
   }
 `;
 
@@ -17,9 +21,6 @@ const H1 = styled.h1<{ current?: boolean }>`
   margin: 10px 30px 10px 0;
   color: ${({ theme: { colors }, current }) =>
     current ? colors.mainColor800 : colors.black};
-  @media (max-width: 500px) {
-    margin: 10px 15px 10px 0;
-  }
 `;
 
 export default { Navigation, H1 };
