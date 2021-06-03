@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
+
 import SEO from '@components/seo';
+import Navigation from '@components/navigation';
+import PostCard, { IPostCard } from '@components/post-card';
 import Layout from '@containers/layout';
 
 const LatestPostListQuery = graphql`
@@ -11,6 +14,10 @@ const LatestPostListQuery = graphql`
           excerpt(truncate: true, pruneLength: 200)
           frontmatter {
             title
+            thumbnail
+            draft
+            category
+            tag
             date(formatString: "YYYY-MM-DD HH:mm:ss")
           }
           fields {
@@ -19,7 +26,7 @@ const LatestPostListQuery = graphql`
           id
         }
       }
-      groupByCategory: group(field: frontmatter___category) {
+      groupByTag: group(field: frontmatter___tag) {
         fieldValue
         totalCount
       }
@@ -27,27 +34,22 @@ const LatestPostListQuery = graphql`
   }
 `;
 
-const IndexPage: React.FC = () => {
+const IndexPage: FC = () => {
   const {
-    allMarkdownRemark: { edges, groupByCategory },
+    allMarkdownRemark: { edges, groupByTag },
   } = useStaticQuery(LatestPostListQuery);
 
-  console.log(groupByCategory);
+  const filteredEdges = edges.filter(
+    ({ node }: any) => !node.frontmatter.draft && !!node.frontmatter.category,
+  );
 
   return (
-    <Layout>
+    <Layout path="home">
       <SEO title="Home" url="https://2oneweek.dev" />
-      <h1>최근 작성한 게시글 목록</h1>
-      <ul>
-        {edges.map(({ node }: any) => (
-          <li key={node.id}>
-            <h2>
-              <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
-            </h2>
-            <h3>{node.frontmatter.date}</h3>
-            <p>{node.excerpt}</p>
-            <hr />
-          </li>
+      <Navigation />
+      <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
+        {filteredEdges.map(({ node }: IPostCard) => (
+          <PostCard key={node.id} node={node} />
         ))}
       </ul>
     </Layout>
