@@ -6,6 +6,7 @@ const Navigation = styled.section`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin: 0 20px;
 `;
 
 const H1 = styled.h1<{ current?: boolean }>`

@@ -47,7 +47,14 @@ const IndexPage: FC = () => {
     <Layout path="home">
       <SEO title="Home" url="https://2oneweek.dev" />
       <Navigation />
-      <ul style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <ul
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
         {filteredEdges.map(({ node }: IPostCard) => (
           <PostCard key={node.id} node={node} />
         ))}

@@ -35,7 +35,10 @@ const HeaderContainer = styled.section<{ path: string }>`
   max-width: ${({ theme: { sizes }, path }) => sizes.bigContainer};
   height: 100%;
   padding: 0 ${({ theme }) => theme.space[6]};
-  margin: auto;
+  margin: 0 auto;
+  a {
+    margin: 0 20px;
+  }
 `;
 
 const HeaderLink = styled(Link)<{ bold?: string }>`
@@ -43,6 +46,7 @@ const HeaderLink = styled(Link)<{ bold?: string }>`
   color: ${({ theme: { colors } }) => colors.mainColor800};
   font-size: 18px;
   font-weight: ${({ bold }) => bold && 'bold'};
+  margin: 0 20px;
 `;
 
 export default { Header, HeaderContainer, HeaderLink };

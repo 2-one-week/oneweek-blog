@@ -22,10 +22,6 @@ const Container = styled.li`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: rgb(81 99 120 / 10%) 0px 3px 3px 0px;
-
-  &:first-child {
-    margin-left: 0;
-  }
 `;
 
 const SLink = styled(Link)`

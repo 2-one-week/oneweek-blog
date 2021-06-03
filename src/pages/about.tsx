@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
+import SEO from '@components/seo';
 import Layout from '@containers/layout';
 import { PostContent } from '@containers/post/components';
 
@@ -9,6 +10,7 @@ export default ({ data }: any) => {
 
   return (
     <Layout path={'resume'}>
+      <SEO title="Resume" url="https://2oneweek.dev" />
       <PostContent html={resume.html} />
     </Layout>
   );
