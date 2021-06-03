@@ -22,16 +22,16 @@ declare module 'styled-components' {
       gray700: '#374151';
       gray800: '#1F2937';
       gray900: '#111827';
-      violet50: '#F5F3FF';
-      violet100: '#EDE9FE';
-      violet200: '#DDD6FE';
-      violet300: '#C4B5FD';
-      violet400: '#A78BFA';
-      violet500: '#8B5CF6';
-      violet600: '#7C3AED';
-      violet700: '#6D28D9';
-      violet800: '#5B21B6';
-      violet900: '#4C1D95';
+      mainColor50: '#F5F3FF';
+      mainColor100: '#EDE9FE';
+      mainColor200: '#DDD6FE';
+      mainColor300: '#C4B5FD';
+      mainColor400: '#A78BFA';
+      mainColor500: '#8B5CF6';
+      mainColor600: '#7C3AED';
+      mainColor700: '#6D28D9';
+      mainColor800: '#5B21B6';
+      mainColor900: '#4C1D95';
     };
     sizes: {
       1: '1px';
@@ -42,7 +42,8 @@ declare module 'styled-components' {
       6: '24px';
       7: '32px';
       8: '64px';
-      container: '640px';
+      smallContainer: '640px';
+      bigContainer: '1000px';
     };
     space: {
       1: '1px';

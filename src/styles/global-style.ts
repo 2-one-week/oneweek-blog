@@ -12,23 +12,27 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: center;
     background-color: white;
-    position: fixed;
   }
   * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-size: 62.5%;
-    font-family: 'KoPubWorld', NotoSansKR, NotoSansJP, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "맑은 고딕", "Yu Gothic", "Segoe UI", Roboto, system-ui, sans-serif !important;
+    /* font-size: 62.5%; */
+    font-family: KoPubWorld, NotoSansKR, NotoSansJP, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "맑은 고딕", "Yu Gothic", "Segoe UI", Roboto, system-ui, sans-serif !important;
   }
   @font-face { 
     font-family: local('KoPubWorld'); 
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
     src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
-    font-size: 62.5% !important;
+    /* font-size: 62.5% !important; */
   }
   a {
     text-decoration: none !important;
+    color: ${({ theme: { colors } }) => colors.mainColor800};
+
+    &.visited{
+      text-decoration: none
+    }
   }
   #___gatsby{
     width: 100%;
