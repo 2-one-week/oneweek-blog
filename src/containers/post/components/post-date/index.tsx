@@ -5,6 +5,7 @@ const StyledPostDate = styled.p`
   text-align: right;
   font-size: 12px;
   font-style: italic;
+  margin: 20px 0;
 `;
 
 interface IPostDate {

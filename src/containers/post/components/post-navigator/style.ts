@@ -7,15 +7,30 @@ const Navigation = styled.ul`
   justify-content: space-between;
   list-style: none;
   padding: 0;
-  li {
-    margin-bottom: 12px;
-  }
 
-  a {
-    padding: 7px 16px 8px 16px;
+  li {
+    border: 1px solid ${({ theme: { colors } }) => colors.mainColor800};
     border-radius: 6px;
-    font-size: 12px;
-    opacity: 0.8;
+
+    &:first-child {
+      padding: 6px 10px;
+    }
+    &:last-child {
+      padding: 6px 10px;
+    }
+
+    a {
+      font-size: 18px;
+      opacity: 0.8;
+      text-align: center;
+    }
+
+    &:hover {
+      background-color: ${({ theme: { colors } }) => colors.mainColor800};
+      & > a {
+        color: white;
+      }
+    }
   }
 `;
 

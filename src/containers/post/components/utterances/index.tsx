@@ -7,7 +7,7 @@ export interface PostCommentsProps {
   url: string;
 }
 
-export const PostComments: FC<PostCommentsProps> = React.memo(
+const PostComments: FC<PostCommentsProps> = React.memo(
   ({ repo = '2-one-week/oneweek-blog', url }) => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -40,3 +40,5 @@ export const PostComments: FC<PostCommentsProps> = React.memo(
 );
 
 PostComments.displayName = 'PostComments';
+
+export default PostComments;
