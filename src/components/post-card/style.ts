@@ -22,6 +22,9 @@ const Container = styled.li`
   border-radius: 8px;
   overflow: hidden;
   box-shadow: rgb(81 99 120 / 10%) 0px 3px 3px 0px;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const SLink = styled(Link)`

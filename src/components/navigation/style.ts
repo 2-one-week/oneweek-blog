@@ -7,12 +7,19 @@ const Navigation = styled.section`
   justify-content: flex-start;
   align-items: center;
   margin: 0 20px;
+
+  @media (max-width: 500px) {
+    margin: 0;
+  }
 `;
 
 const H1 = styled.h1<{ current?: boolean }>`
   margin: 10px 30px 10px 0;
   color: ${({ theme: { colors }, current }) =>
     current ? colors.mainColor800 : colors.black};
+  @media (max-width: 500px) {
+    margin: 10px 15px 10px 0;
+  }
 `;
 
 export default { Navigation, H1 };

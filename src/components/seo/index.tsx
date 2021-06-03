@@ -48,8 +48,10 @@ const SEO: FC<SeoProps> = ({
       <title lang="ko">{title}</title>
       <link rel="canonical" href={getUrl(url)} />
       <meta name="description" content={pageDescription} />
-      <meta name="image" content={getUrl(imageUrl)} />
-      <meta property="og:image" content={getUrl(imageUrl)} />
+      <meta name="image" content={imageUrl} />
+      <meta property="og:image" content={imageUrl} />
+      {/* <meta name="image" content={getUrl(imageUrl)} /> */}
+      {/* <meta property="og:image" content={getUrl(imageUrl)} /> */}
       <meta property="og:image:width" content={imageWidth.toString()} />
       <meta property="og:image:height" content={imageHeight.toString()} />
       <meta property="og:url" content={getUrl(url)} />
