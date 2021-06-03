@@ -9,7 +9,7 @@ const Navigation = styled.section`
   margin: 0 20px;
 
   @media (max-width: 500px) {
-    margin: 0;
+    margin-left: 20px;
   }
 `;
 
