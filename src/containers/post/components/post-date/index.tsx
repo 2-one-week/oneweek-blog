@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
+import { getDateLabel } from '@utils/date';
+
 const StyledPostDate = styled.p`
   text-align: right;
-  font-size: 12px;
+  font-size: 14px;
   font-style: italic;
   margin: 20px 0;
 `;
@@ -13,7 +15,11 @@ interface IPostDate {
 }
 
 const PostDate: FC<IPostDate> = ({ date }) => {
-  return <StyledPostDate>{date}</StyledPostDate>;
+  return (
+    <StyledPostDate>
+      {getDateLabel(`${new Date(date).getTime()}`)}
+    </StyledPostDate>
+  );
 };
 
 export default PostDate;

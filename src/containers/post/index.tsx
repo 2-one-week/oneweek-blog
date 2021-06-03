@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { useStaticQuery, Link, graphql } from 'gatsby';
 
 import Layout from '@containers/layout';
 import SEO from '@components/seo';

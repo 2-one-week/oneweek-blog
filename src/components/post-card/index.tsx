@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import { getDateLabel } from '@utils/date';
 import S from './style';
 
 export interface IPostCard {
@@ -38,7 +39,9 @@ const PostCard: FC<IPostCard> = ({ node }) => {
           <S.ExcerptWrapper>
             {excerpt.length > 70 ? `${excerpt.slice(0, 70)}...` : excerpt}
           </S.ExcerptWrapper>
-          <S.DateWrapper>{date}</S.DateWrapper>
+          <S.DateWrapper>
+            {getDateLabel(`${new Date(date).getTime()}`)}
+          </S.DateWrapper>
         </S.ContentWrapper>
       </S.SLink>
     </S.Container>
