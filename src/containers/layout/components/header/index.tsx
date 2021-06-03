@@ -1,18 +1,23 @@
 import React, { FC } from 'react';
 
+import useScroll from '@hooks/useScroll';
 import GithubIcon from '@assets/github-icon';
+import { TPath } from '@containers/layout';
 
 import S from './style';
 
 interface IHeader {
   title: string;
+  path: TPath;
 }
 
-const Header: FC<IHeader> = ({ title }) => {
+const Header: FC<IHeader> = ({ path, title }) => {
+  const [scorllState] = useScroll();
+
   return (
-    <S.Header>
-      <S.HeaderContainer>
-        <S.HeaderLink bold to="/">
+    <S.Header hide={scorllState.hide}>
+      <S.HeaderContainer path={path}>
+        <S.HeaderLink bold={'true'} to="/">
           {title}
         </S.HeaderLink>
         <a target="_blank" href="https://github.com/2-one-week">

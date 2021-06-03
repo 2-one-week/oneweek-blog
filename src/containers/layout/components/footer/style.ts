@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 const Footer = styled.footer`
-  padding-top: 52px;
+  padding-bottom: 20px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 12px;
 
   & > a {
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 12px;
   }
 `;
 

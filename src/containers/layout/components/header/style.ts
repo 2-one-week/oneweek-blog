@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby';
 
-const Header = styled.header`
+const changePageAnimation = keyframes`
+    0% {
+        opacity: 0.01;
+        transform: translate(0px, -10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+    }
+`;
+
+const Header = styled.header<{ hide: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,22 +24,24 @@ const Header = styled.header`
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(10px);
   width: 100%;
+  display: ${({ hide }) => (hide ? 'none' : 'block')};
+  /* animation: 0.5s ease-in-out 0s 1 normal none running ${changePageAnimation}; */
 `;
 
-const HeaderContainer = styled.section`
+const HeaderContainer = styled.section<{ path: string }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: ${({ theme: { sizes } }) => sizes.container};
+  max-width: ${({ theme: { sizes }, path }) => sizes.bigContainer};
   height: 100%;
   padding: 0 ${({ theme }) => theme.space[6]};
   margin: auto;
 `;
 
-const HeaderLink = styled(Link)<{ bold?: boolean }>`
+const HeaderLink = styled(Link)<{ bold?: string }>`
   text-decoration: none;
-  color: ${({ theme: { colors } }) => colors.violet800};
-  font-size: 1.8rem;
+  color: ${({ theme: { colors } }) => colors.mainColor800};
+  font-size: 18px;
   font-weight: ${({ bold }) => bold && 'bold'};
 `;
 
