@@ -17,7 +17,7 @@ const CategoryQuery = graphql`
             title
             draft
             category
-            date(formatString: "YYYY-MM-DD HH:mm:ss")
+            date(formatString: "MMMM DD, YYYY")
           }
           fields {
             slug

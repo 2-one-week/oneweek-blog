@@ -18,7 +18,7 @@ const LatestPostListQuery = graphql`
             draft
             category
             tag
-            date(formatString: "YYYY-MM-DD HH:mm:ss")
+            date(formatString: "MMMM DD, YYYY")
           }
           fields {
             slug

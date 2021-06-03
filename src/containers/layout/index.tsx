@@ -11,7 +11,7 @@ import Footer from './components/footer';
 
 import S from './style';
 
-export type TPath = 'home' | 'post' | 'resume' | 'category' | 'tag';
+export type TPath = 'home' | 'post' | 'resume' | 'category' | 'tag' | '404';
 interface ILayout {
   path: TPath;
 }
