@@ -1,4 +1,3 @@
-const { CreatePagesArgs } = require('gatsby');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const path = require('path');
 
@@ -14,36 +13,21 @@ exports.createPages = async ({ graphql, actions }) => {
         limit: 1000
       ) {
         edges {
-          previous {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-          }
-          next {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-          }
           node {
+            id
+            html
+            excerpt(pruneLength: 280)
             fields {
               slug
             }
             frontmatter {
               title
+              thumbnail
               draft
               category
               tag
+              date(formatString: "MMMM DD, YYYY")
             }
-            id
-            html
           }
         }
         groupByCategory: group(field: frontmatter___category) {
@@ -59,48 +43,26 @@ exports.createPages = async ({ graphql, actions }) => {
   `);
 
   const postTemplatePath = pathJoin('./src/containers/post/index.tsx');
-  const homePostListTemplatePath = pathJoin(
-    'src/components/home/HomePostListTemplate.tsx',
-  );
 
   if (result.errors) {
     throw result.errors;
   }
 
   if (result.data) {
-    result.data.allMarkdownRemark.groupByCategory.forEach((data) => {
-      createPage({
-        path: `/category/${data.fieldValue}/`,
-        component: postTemplatePath,
-        context: {
-          category: data.fieldValue,
-        },
-      });
-    });
-
-    result.data.allMarkdownRemark.groupByTag.forEach((data) => {
-      createPage({
-        path: `/tag/${data.fieldValue}/`,
-        component: postTemplatePath,
-        context: {
-          tag: data.fieldValue,
-        },
-      });
-    });
-
     const posts = result.data.allMarkdownRemark.edges.filter(
       ({ node }) => !node.frontmatter.draft && !!node.frontmatter.category,
     );
 
-    posts.forEach(({ previous, node, next }) => {
+    posts.forEach(({ node }, index) => {
+      const previous = index === 0 ? null : posts[index - 1].node;
+      const next = index === posts.length - 1 ? null : posts[index + 1].node;
       createPage({
         path: node.fields.slug,
         component: postTemplatePath,
         context: {
           next,
           previous,
-          id: node.id,
-          html: node.html,
+          node,
         },
       });
     });
