@@ -9,7 +9,7 @@ const SEO: FC<ISEO> = ({
   url,
   description,
   ogType = 'article',
-  imageUrl = 'https://user-images.githubusercontent.com/63051473/120667066-1a610000-c4c8-11eb-936b-a77840ed8a19.jpeg',
+  imageUrl,
   imageWidth = 1200,
   imageHeight = 630,
 }) => {
