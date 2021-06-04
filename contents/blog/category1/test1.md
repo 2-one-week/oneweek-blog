@@ -1,9 +1,9 @@
 ---
 title: 'test1'
-thumbnail: 'https://cdn.pixabay.com/photo/2019/03/13/08/29/cat-4052454_1280.jpg'
+thumbnail: ./image/test1_thumbnail.png
 date: 2020-07-05 16:21:13
 category: 'category1'
-tag: ["123", '234']
+tags: ["123", '234']
 draft: false
 ---
 
@@ -55,7 +55,7 @@ __ __ __ __ __ __ __
 ***
 -----
 
-![이미지 테스트](./image/profile.png)
+![이미지 테스트](./image/thumbnail_test.png)
 
 ![고양이애옹](https://cdn.pixabay.com/photo/2019/03/13/08/29/cat-4052454_1280.jpg)
 
