@@ -30,7 +30,7 @@ const useScroll = (): [
     const { pageYOffset } = window;
 
     const deltaY = pageYOffset - scorllState.pageYOffset;
-    const hide = (deltaY >= 0 ? true : false) && pageYOffset !== 0;
+    const hide = (deltaY >= 0 ? true : false) && pageYOffset > 100;
 
     setScrollState({ hide, pageYOffset });
   }, []);
