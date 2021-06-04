@@ -21,16 +21,7 @@ const theme: DefaultTheme = {
     gray700: '#374151',
     gray800: '#1F2937',
     gray900: '#111827',
-    mainColor50: '#F5F3FF',
-    mainColor100: '#EDE9FE',
-    mainColor200: '#DDD6FE',
-    mainColor300: '#C4B5FD',
-    mainColor400: '#A78BFA',
-    mainColor500: '#8B5CF6',
-    mainColor600: '#7C3AED',
-    mainColor700: '#6D28D9',
-    mainColor800: '#5B21B6',
-    mainColor900: '#4C1D95',
+    mainColor: '#5B21B6',
   },
   sizes: {
     1: '1px',
@@ -89,5 +80,5 @@ export type TColor =
   | 'mainColor500'
   | 'mainColor600'
   | 'mainColor700'
-  | 'mainColor800'
+  | 'mainColor'
   | 'mainColor900';
