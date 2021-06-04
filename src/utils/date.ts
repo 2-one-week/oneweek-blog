@@ -14,11 +14,20 @@ export const getTimeAMPMFormat = (dateString: string | number) => {
   }:${minutes.toString().padStart(2, '0')}`;
 };
 
-export const getDayMonth = (dateString: string) => {
+const getDayMonth = (dateString: string) => {
   /** format: Month / Day */
   return new Date(+dateString).toLocaleDateString('ko', {
     day: 'numeric',
     month: 'long',
+  });
+};
+
+const getMonthDayYear = (dateString: string | number) => {
+  /** format: , Year, Month Day */
+  return new Date(+dateString).toLocaleDateString('ko', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 };
 
@@ -36,5 +45,5 @@ export const getDateLabel = (dateString: string) => {
     ? getTimeAMPMFormat(dateString)
     : dayDiff === 1
     ? '어제'
-    : getDayMonth(dateString);
+    : getMonthDayYear(dateString);
 };
