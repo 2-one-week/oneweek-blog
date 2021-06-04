@@ -1,25 +1,9 @@
 import React, { FC } from 'react';
 
 import { getDateLabel } from '@utils/date';
-import S from './style';
 
-export interface IPostCard {
-  node: {
-    excerpt: string;
-    frontmatter: {
-      title: string;
-      thumbnail: string;
-      draft: string;
-      category: string;
-      tag: string[];
-      date: string;
-    };
-    fields: {
-      slug: string;
-    };
-    id: string;
-  };
-}
+import { IPostCard } from './type';
+import S from './style';
 
 const PostCard: FC<IPostCard> = ({ node }) => {
   const {
@@ -27,11 +11,16 @@ const PostCard: FC<IPostCard> = ({ node }) => {
     frontmatter: { thumbnail, title, date },
     fields: { slug },
   } = node;
+
   return (
     <S.Container>
       <S.SLink to={slug}>
         <S.Background>
-          {thumbnail ? <S.ImageWrapper src={thumbnail} /> : <p>{title}</p>}
+          {thumbnail ? (
+            <S.ImageWrapper src={thumbnail.childImageSharp.fixed.src} />
+          ) : (
+            <p>{title}</p>
+          )}
         </S.Background>
 
         <S.ContentWrapper>
