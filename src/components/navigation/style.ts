@@ -7,6 +7,7 @@ const Navigation = styled.section`
   justify-content: flex-start;
   align-items: center;
   margin: 0 20px;
+  position: relative;
 
   @media (max-width: 500px) {
     justify-content: space-between;
@@ -20,7 +21,15 @@ const Navigation = styled.section`
 const H1 = styled.h1<{ current?: boolean }>`
   margin: 10px 30px 10px 0;
   color: ${({ theme: { colors }, current }) =>
-    current ? colors.mainColor800 : colors.black};
+    current ? colors.mainColor : colors.black};
 `;
 
-export default { Navigation, H1 };
+const TagListWrapper = styled.section`
+  width: auto;
+  height: auto;
+  @media (max-width: 900px) {
+    display: none;
+  }
+`;
+
+export default { Navigation, H1, TagListWrapper };
