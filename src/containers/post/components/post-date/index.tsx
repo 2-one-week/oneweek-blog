@@ -6,7 +6,7 @@ import { getDateLabel } from '@utils/date';
 const StyledPostDate = styled.p`
   text-align: right;
   font-size: 14px;
-  font-style: italic;
+  color: ${({ theme: { colors } }) => colors.gray600};
   margin: 20px 0;
 `;
 

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
-import PostAnchor from '../post-anchor';
+import PostAnchor from '@containers/post/components/post-anchor';
 
 const StyledPostDivider = styled.section`
   position: relative;

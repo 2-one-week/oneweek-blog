@@ -1,26 +1,8 @@
 import React, { FC } from 'react';
 import { Link } from 'gatsby';
 
+import { IPostNavigator } from './type';
 import S from './style';
-
-interface IPostNavigator {
-  previous: {
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-    };
-  };
-  next: {
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-    };
-  };
-}
 
 const PostNavigator: FC<IPostNavigator> = ({ previous, next }) => {
   return (

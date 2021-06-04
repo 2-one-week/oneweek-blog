@@ -6,8 +6,8 @@ import S from './style';
 import { IFilteredAnchor } from './type';
 import { filterAnchorDetails } from './make-anchor';
 
-const loop = (data: IFilteredAnchor[]) =>
-  data.map((item) => {
+const loop = (anchors: IFilteredAnchor[]) =>
+  anchors.map((item) => {
     if (item.children.length > 0) {
       return (
         <S.SLink to={item.href} key={item.href}>

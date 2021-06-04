@@ -9,7 +9,7 @@ const Navigation = styled.ul`
   padding: 0;
 
   li {
-    border: 1px solid ${({ theme: { colors } }) => colors.mainColor800};
+    border: 1px solid ${({ theme: { colors } }) => colors.mainColor};
     border-radius: 6px;
 
     &:first-child {
@@ -26,7 +26,7 @@ const Navigation = styled.ul`
     }
 
     &:hover {
-      background-color: ${({ theme: { colors } }) => colors.mainColor800};
+      background-color: ${({ theme: { colors } }) => colors.mainColor};
       & > a {
         color: white;
       }
