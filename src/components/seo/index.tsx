@@ -35,14 +35,18 @@ const SEO: FC<ISEO> = ({
     ? description
     : site?.siteMetadata?.description!;
 
+  const pageImageUrl = imageUrl
+    ? getUrl(imageUrl)
+    : 'https://user-images.githubusercontent.com/63051473/120824154-1e0d8900-c593-11eb-85a3-f17dac451f55.png';
+
   return (
     <Helmet titleTemplate={`%s | ${site?.siteMetadata?.title}`}>
       <html lang="ko" />
       <title lang="ko">{title}</title>
       <link rel="canonical" href={getUrl(url)} />
       <meta name="description" content={pageDescription} />
-      <meta name="image" content={getUrl(imageUrl)} />
-      <meta property="og:image" content={getUrl(imageUrl)} />
+      <meta name="image" content={pageImageUrl} />
+      <meta property="og:image" content={pageImageUrl} />
       <meta property="og:image:width" content={imageWidth.toString()} />
       <meta property="og:image:height" content={imageHeight.toString()} />
       <meta property="og:url" content={getUrl(url)} />

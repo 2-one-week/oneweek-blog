@@ -17,7 +17,7 @@ const PostCard: FC<IPostCard> = ({ node }) => {
       <S.SLink to={slug}>
         <S.Background>
           {thumbnail ? (
-            <S.ImageWrapper src={thumbnail.childImageSharp.fixed.src} />
+            <S.ImageWrapper src={thumbnail.childImageSharp.fluid.src} />
           ) : (
             <p>{title}</p>
           )}

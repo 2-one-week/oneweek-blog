@@ -30,7 +30,7 @@ export interface IPageTemplate {
         date: string;
         thumbnail?: {
           childImageSharp: {
-            fixed: {
+            fluid: {
               src: string;
             };
           };

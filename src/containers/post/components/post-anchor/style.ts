@@ -35,7 +35,7 @@ const SLink = styled(Link)`
   align-items: flex-start;
   flex-direction: column;
   font-size: 16px;
-
+  margin: 5px 0;
   & > a {
     margin-left: 10px;
     font-size: 14px;

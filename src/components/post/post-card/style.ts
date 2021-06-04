@@ -57,7 +57,7 @@ const Background = styled.article`
     font-weight: bold;
     color: ${({ theme: { colors } }) => colors.white};
     overflow: hidden;
-    white-space: wrap;
+    white-space: nowrap;
     text-overflow: ellipsis;
   }
   @media (max-width: 500px) {
@@ -78,7 +78,7 @@ const TitleWrapper = styled.h4`
   font-weight: bold;
   margin: 5px 6px;
   overflow: hidden;
-  white-space: wrap;
+  white-space: nowrap;
   text-overflow: ellipsis;
 `;
 

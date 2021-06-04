@@ -10,8 +10,8 @@ const LatestPostListQuery = graphql`
             title
             thumbnail {
               childImageSharp {
-                fixed(width: 260, height: 160) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 800) {
+                  src
                 }
               }
             }

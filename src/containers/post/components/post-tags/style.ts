@@ -26,6 +26,10 @@ const TagItemsWrapper = styled.li`
   p {
     font-size: 14px;
   }
+
+  @media (max-width: 500px) {
+    margin: 15px 5px;
+  }
 `;
 
 export default { TagsWrapper, TagItemsWrapper };

@@ -27,11 +27,7 @@ const TagList: FC<ITagList> = ({ currentTag, tags, onClickTag }) => {
             onClickTag('ALL');
           }}
         >
-          ALL (
-          {tags.reduce((acc, { totalCount }) => {
-            return acc + totalCount;
-          }, 0)}
-          )
+          ALL
         </S.TagItem>
         {tags.map((tag) => (
           <S.TagItem

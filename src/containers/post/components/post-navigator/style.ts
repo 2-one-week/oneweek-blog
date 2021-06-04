@@ -20,7 +20,7 @@ const Navigation = styled.ul`
     }
 
     a {
-      font-size: 18px;
+      font-size: 15px;
       opacity: 0.8;
       text-align: center;
     }

@@ -33,14 +33,14 @@ const PostTemplate: FC<IPageTemplate> = React.memo(({ pageContext }) => {
         title={title}
         url={`https://2oneweek.dev${slug}`}
         description={excerpt}
-        imageUrl={thumbnail?.childImageSharp.fixed.src}
+        imageUrl={thumbnail?.childImageSharp.fluid.src}
       />
       <PostTitle title={title} />
       <PostDate date={date} />
       <PostDivider />
       {tags && <PostTags tags={tags} />}
       {thumbnail && (
-        <PostThumbnail imageSrc={thumbnail.childImageSharp.fixed.src} />
+        <PostThumbnail imageSrc={thumbnail.childImageSharp.fluid.src} />
       )}
       <PostContent html={html} />
       <PostNavigator previous={previous} next={next} />

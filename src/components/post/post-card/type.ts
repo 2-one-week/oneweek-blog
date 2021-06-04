@@ -3,7 +3,13 @@ export interface IPostCard {
     excerpt: string;
     frontmatter: {
       title: string;
-      thumbnail: any;
+      thumbnail?: {
+        childImageSharp: {
+          fluid: {
+            src: string;
+          };
+        };
+      };
       draft: string;
       category: string;
       tags: string[];
