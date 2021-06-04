@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     text-decoration: none !important;
-    color: ${({ theme: { colors } }) => colors.mainColor800};
+    color: ${({ theme: { colors } }) => colors.mainColor};
 
     &.visited{
       text-decoration: none

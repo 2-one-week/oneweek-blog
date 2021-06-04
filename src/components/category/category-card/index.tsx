@@ -2,22 +2,8 @@ import React, { FC } from 'react';
 
 import { getDateLabel } from '@utils/date';
 
+import { ICategoryCard } from './type';
 import S from './style';
-
-interface ICategoryCard {
-  node: {
-    id: string;
-    excerpt: string;
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-      category: string;
-      date: string;
-    };
-  };
-}
 
 const CategoryCard: FC<ICategoryCard> = ({ node }) => {
   return (

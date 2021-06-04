@@ -1,72 +1,27 @@
 import React, { FC, useState, useEffect } from 'react';
-import { useStaticQuery, graphql, Link } from 'gatsby';
 
 import SEO from '@components/seo';
-import CategoryListItem from '@components/category-list-item';
-import CategoryCard from '@components/category-card';
+import {
+  CategoryCard,
+  CategoryListWrapper,
+  CategoryListItem,
+} from '@components/category';
 import UserInfo from '@components/user-info';
 import Layout from '@containers/layout';
 
-const CategoryQuery = graphql`
-  query CategoryQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
-      edges {
-        node {
-          excerpt(truncate: true, pruneLength: 200)
-          frontmatter {
-            title
-            draft
-            category
-            date(formatString: "MMMM DD, YYYY")
-          }
-          fields {
-            slug
-          }
-          id
-        }
-      }
-      groupByCategory: group(field: frontmatter___category) {
-        fieldValue
-        totalCount
-      }
-    }
-  }
-`;
-
-interface IPost {
-  node: {
-    id: string;
-    excerpt: string;
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-      category: string;
-      draft: boolean;
-      date: string;
-    };
-  };
-}
-
-interface ICategory {
-  fieldValue: string;
-  totalCount: number;
-}
+import useCategoryQuery from '@hooks/useCategoryQuery';
 
 const ALL = 'all';
 
 const CategoryPage: FC = () => {
-  const {
-    allMarkdownRemark: { edges, groupByCategory },
-  } = useStaticQuery(CategoryQuery);
+  const { edges, groupByCategory } = useCategoryQuery();
 
   const [posts, setPosts] = useState<IPost[]>([]);
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string>(ALL);
 
   const handleResetCategory = () => {
-    setCurrentCategory('all');
+    setCurrentCategory(ALL);
   };
 
   const handleClickCategory = (categoryName: string) => {
@@ -88,16 +43,7 @@ const CategoryPage: FC = () => {
     <Layout path="category">
       <SEO title="Category" url="https://2oneweek.dev" />
       <UserInfo />
-      <ul
-        style={{
-          listStyle: 'none',
-          display: 'flex',
-          justifyItems: 'flex-start',
-          alignItems: 'center',
-          overflowX: 'auto',
-          margin: '20px 0',
-        }}
-      >
+      <CategoryListWrapper>
         <CategoryListItem
           isCurrent={ALL === currentCategory}
           onClick={handleResetCategory}
@@ -117,7 +63,7 @@ const CategoryPage: FC = () => {
             categoryItemCount={category.totalCount}
           />
         ))}
-      </ul>
+      </CategoryListWrapper>
       <ul>
         {posts
           .filter((post) => {
@@ -134,6 +80,26 @@ const CategoryPage: FC = () => {
     </Layout>
   );
 };
+interface IPost {
+  node: {
+    id: string;
+    excerpt: string;
+    fields: {
+      slug: string;
+    };
+    frontmatter: {
+      title: string;
+      category: string;
+      draft: boolean;
+      date: string;
+    };
+  };
+}
+
+interface ICategory {
+  fieldValue: string;
+  totalCount: number;
+}
 
 CategoryPage.displayName = 'CategoryPage';
 

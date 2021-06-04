@@ -9,14 +9,10 @@ import theme from '@styles/theme';
 import Header from './components/header';
 import Footer from './components/footer';
 
+import { ILayout } from './type';
 import S from './style';
 
-export type TPath = 'home' | 'post' | 'resume' | 'category' | 'tag' | '404';
-interface ILayout {
-  path: TPath;
-}
-
-const Layout: FC<ILayout> = ({ path, children }) => {
+const Layout: FC<ILayout> = ({ path, children, tagName, tags, onClickTag }) => {
   deckDeckGoHighlightElement();
   const { site } = useStaticQuery(graphql`
     query Layout {
@@ -31,7 +27,13 @@ const Layout: FC<ILayout> = ({ path, children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Header title={site?.siteMetadata?.title} path={path} />
+      <Header
+        title={site?.siteMetadata?.title}
+        path={path}
+        tagName={tagName}
+        tags={tags}
+        onClickTag={onClickTag}
+      />
       <S.Main path={path}>{children}</S.Main>
       <Footer />
     </ThemeProvider>

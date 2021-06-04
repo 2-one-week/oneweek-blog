@@ -1,9 +1,9 @@
 ---
 title: 'test3'
-thumbnail: ''
+thumbnail: 
 date: 2020-07-02 16:21:13
 category: 'category3'
-tag: ["123", '234']
+tags: ["123",'asdfasdf' ]
 draft: false
 ---
     

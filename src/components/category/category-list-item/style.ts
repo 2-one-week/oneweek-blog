@@ -7,22 +7,26 @@ const Container = styled.li<{ isCurrent: boolean }>`
   margin: 0px 5px;
   border: 1px solid
     ${({ theme: { colors }, isCurrent }) =>
-      isCurrent ? colors.mainColor800 : colors.gray600};
+      isCurrent ? colors.mainColor : colors.gray600};
   border-radius: 8px;
   color: ${({ theme: { colors }, isCurrent }) =>
-    isCurrent ? colors.mainColor800 : colors.gray600};
+    isCurrent ? colors.mainColor : colors.gray600};
   display: flex;
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
 
+  p {
+    font-size: 14px;
+  }
+
   &:hover {
-    border: 1px solid ${({ theme: { colors } }) => colors.mainColor800};
+    border: 1px solid ${({ theme: { colors } }) => colors.mainColor};
     color: ${({ theme: { colors } }) => colors.white};
-    background-color: ${({ theme: { colors } }) => colors.mainColor800};
+    background-color: ${({ theme: { colors } }) => colors.mainColor};
 
     & > article {
-      color: ${({ theme: { colors } }) => colors.mainColor800};
+      color: ${({ theme: { colors } }) => colors.mainColor};
       background-color: ${({ theme: { colors } }) => colors.white};
     }
   }
@@ -37,7 +41,7 @@ const NumberWrapper = styled.article<{ isCurrent: boolean }>`
   border-radius: 18px;
   color: ${({ theme: { colors } }) => colors.white};
   background-color: ${({ theme: { colors }, isCurrent }) =>
-    isCurrent ? colors.mainColor800 : colors.gray600};
+    isCurrent ? colors.mainColor : colors.gray600};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -27,14 +27,28 @@ const Container = styled.li`
 `;
 
 const LinkWrapper = styled(Link)`
+  h2 {
+    font-size: 18px;
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
+  }
   .date {
     margin: 5px 0;
     color: ${({ theme: { colors } }) => colors.gray500};
+    font-size: 12px;
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
   }
 
   .excerpt {
     margin: 7px 0;
     color: ${({ theme: { colors } }) => colors.gray700};
+    font-size: 14px;
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: ellipsis;
   }
 `;
 

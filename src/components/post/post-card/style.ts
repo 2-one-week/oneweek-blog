@@ -14,7 +14,7 @@ const changePageAnimation = keyframes`
 
 const Container = styled.li`
   width: 260px;
-  height: 300px;
+  height: 320px;
   list-style: none;
   margin: 10px 20px;
   padding: 0;
@@ -24,6 +24,7 @@ const Container = styled.li`
   box-shadow: rgb(81 99 120 / 10%) 0px 3px 3px 0px;
   @media (max-width: 500px) {
     width: 100%;
+    height: 360px;
     margin: 15px 0;
   }
 `;
@@ -45,13 +46,12 @@ const ImageWrapper = styled.img`
 
 const Background = styled.article`
   width: 100%;
-  height: 140px;
+  height: 160px;
   overflow: hidden;
-  background-color: ${({ theme: { colors } }) => colors.mainColor800};
+  background-color: ${({ theme: { colors } }) => colors.mainColor};
   display: flex;
   justify-content: center;
   align-items: center;
-
   p {
     font-size: 20px;
     font-weight: bold;
@@ -59,6 +59,9 @@ const Background = styled.article`
     overflow: hidden;
     white-space: wrap;
     text-overflow: ellipsis;
+  }
+  @media (max-width: 500px) {
+    height: 200px;
   }
 `;
 
@@ -68,12 +71,15 @@ const ContentWrapper = styled.section`
   padding: 12px 5px;
 `;
 
-const TitleWrapper = styled.article`
+const TitleWrapper = styled.h4`
   width: 100%;
   height: 30px;
   font-size: 18px;
   font-weight: bold;
   margin: 5px 6px;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
 `;
 
 const ExcerptWrapper = styled.p`
@@ -82,7 +88,7 @@ const ExcerptWrapper = styled.p`
   overflow: hidden;
   white-space: wrap;
   text-overflow: ellipsis;
-  font-size: 16px;
+  font-size: 14px;
   margin: 5px 6px;
   color: ${({ theme: { colors } }) => colors.gray800};
 `;
@@ -90,7 +96,7 @@ const ExcerptWrapper = styled.p`
 const DateWrapper = styled.p`
   width: 100%;
   height: 20px;
-  font-size: 14px;
+  font-size: 12px;
   margin: 2.5px 6px;
   color: ${({ theme: { colors } }) => colors.gray500};
 `;

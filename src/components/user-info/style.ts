@@ -29,7 +29,7 @@ const Container = styled.section`
     transform-origin: center;
 
     &:hover {
-      background-color: ${({ theme: { colors } }) => colors.mainColor800};
+      background-color: ${({ theme: { colors } }) => colors.mainColor};
       color: white;
     }
   }

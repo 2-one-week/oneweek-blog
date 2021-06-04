@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.section`
   width: 100%;
-  max-width: ${({ theme: { sizes } }) => sizes.container};
+  max-width: ${({ theme: { sizes } }) => sizes.smallContainer};
   height: 40px;
   display: flex;
   justify-content: flex-end;
@@ -17,7 +17,7 @@ const BuyMeCoffeeButton = styled.article`
   width: 95px;
   height: 33px;
   text-decoration: none;
-  background-color: ${({ theme: { colors } }) => colors.mainColor800};
+  background-color: ${({ theme: { colors } }) => colors.mainColor};
   color: #ffffff;
   border: 1px solid transparent;
   border-radius: 6px;
@@ -29,7 +29,7 @@ const BuyMeCoffeeButton = styled.article`
 
   &:hover,
   &:active {
-    background-color: ${({ theme: { colors } }) => colors.mainColor800};
+    background-color: ${({ theme: { colors } }) => colors.mainColor};
   }
 
   img {
