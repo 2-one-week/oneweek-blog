@@ -1,22 +1,56 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 import useScroll from '@hooks/useScroll';
 import GithubIcon from '@assets/github-icon';
-import { TPath } from '@containers/layout';
+import HamBurgerIcon from '@assets/hamburger-icon';
+import CloseIcon from '@assets/close-icon';
+import TagList, { ITags } from '@components/tag-list';
 
+import { IHeader } from './type';
 import S from './style';
 
-interface IHeader {
-  title: string;
-  path: TPath;
-}
-
-const Header: FC<IHeader> = ({ path, title }) => {
+const Header: FC<IHeader> = ({ path, title, tagName, tags, onClickTag }) => {
   const [scorllState] = useScroll();
+
+  const [isOpenTags, setIsOpenTags] = useState<boolean>(false);
+
+  const handleOpenTag = () => {
+    setIsOpenTags(!isOpenTags);
+  };
+
+  const handleClickTag = (tagName: string) => {
+    onClickTag?.(tagName);
+    setIsOpenTags(false);
+  };
 
   return (
     <S.Header hide={scorllState.hide}>
       <S.HeaderContainer path={path}>
+        {path === 'home' && (
+          <S.HamBurgerIconWrapper>
+            <HamBurgerIcon
+              width={'24px'}
+              height={'20px'}
+              onClick={handleOpenTag}
+            />
+            <S.TagContainer isOpenTags={isOpenTags}>
+              <S.TagHeader>
+                <CloseIcon
+                  width={'20px'}
+                  height={'20px'}
+                  onClick={handleOpenTag}
+                />
+              </S.TagHeader>
+              <S.TagBody>
+                <TagList
+                  currentTag={tagName ?? 'ALL'}
+                  tags={tags ?? []}
+                  onClickTag={handleClickTag}
+                />
+              </S.TagBody>
+            </S.TagContainer>
+          </S.HamBurgerIconWrapper>
+        )}
         <S.HeaderLink bold={'true'} to="/">
           {title}
         </S.HeaderLink>
