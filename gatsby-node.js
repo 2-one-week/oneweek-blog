@@ -24,8 +24,7 @@ exports.createPages = async ({ graphql, actions }) => {
               title
               thumbnail {
                 childImageSharp {
-                  fixed(width: 400, height: 350) {
-                    srcSet
+                  fluid(maxWidth: 800) {
                     src
                   }
                 }
