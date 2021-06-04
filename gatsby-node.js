@@ -22,21 +22,20 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               title
-              thumbnail
+              thumbnail {
+                childImageSharp {
+                  fixed(width: 400, height: 350) {
+                    srcSet
+                    src
+                  }
+                }
+              }
               draft
               category
-              tag
+              tags
               date(formatString: "MMMM DD, YYYY")
             }
           }
-        }
-        groupByCategory: group(field: frontmatter___category) {
-          fieldValue
-          totalCount
-        }
-        groupByTag: group(field: frontmatter___tag) {
-          fieldValue
-          totalCount
         }
       }
     }

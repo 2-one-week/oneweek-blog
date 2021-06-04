@@ -1,20 +1,7 @@
+const userConfig = require('./gatsby-user-config');
+
 module.exports = {
-  siteMetadata: {
-    title: '2oneweek.dev',
-    description: '이한주 개발 블로그입니다.',
-    author: '2-one-week',
-    siteUrl: 'https://2oneweek.dev',
-    introduction: '현재 블로그 개발 중',
-    social: {
-      twitter: '',
-      github: 'https://github.com/2-one-week',
-      medium: '',
-      facebook: '',
-      linkedin:
-        'https://www.linkedin.com/in/%ED%95%9C%EC%A3%BC-%EC%9D%B4-7978aa210/',
-      instagram: '',
-    },
-  },
+  siteMetadata: userConfig,
   flags: {
     DEV_SSR: true,
   },
@@ -192,14 +179,6 @@ module.exports = {
         threshold: 1,
         once: true,
         disable: false,
-
-        // Advanced Options
-        selector: '[data-sal]',
-        animateClassName: 'sal-animate',
-        disabledClassName: 'sal-disabled',
-        rootMargin: '0% 50%',
-        enterEventName: 'sal:in',
-        exitEventName: 'sal:out',
       },
     },
   ],
