@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 
 interface IPostThumbnail {
+  title: string;
   imageSrc?: string;
 }
 
@@ -16,8 +17,8 @@ const StyledImage = styled.img`
   overflow: hidden;
 `;
 
-const PostThumbnail: FC<IPostThumbnail> = ({ imageSrc }) => {
-  return <StyledImage src={imageSrc} />;
+const PostThumbnail: FC<IPostThumbnail> = ({ title, imageSrc }) => {
+  return <StyledImage src={imageSrc} alt={`${title} thumbnail`} />;
 };
 
 export default PostThumbnail;

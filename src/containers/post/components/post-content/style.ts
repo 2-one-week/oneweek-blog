@@ -85,8 +85,13 @@ const PostContentWrapper = styled.article`
     border-radius: 8px;
   }
 
+  ol {
+    margin: 8px 25px;
+    line-height: 1.8;
+  }
+
   ul {
-    margin: 8px 30px;
+    margin: 8px 25px;
     line-height: 1.8;
   }
 

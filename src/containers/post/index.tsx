@@ -40,7 +40,10 @@ const PostTemplate: FC<IPageTemplate> = React.memo(({ pageContext }) => {
       <PostDivider />
       {tags && <PostTags tags={tags} />}
       {thumbnail && (
-        <PostThumbnail imageSrc={thumbnail.childImageSharp.fluid.src} />
+        <PostThumbnail
+          title={title}
+          imageSrc={thumbnail.childImageSharp.fluid.src}
+        />
       )}
       <PostContent html={html} />
       <PostNavigator previous={previous} next={next} />
