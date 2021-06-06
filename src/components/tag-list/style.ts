@@ -16,6 +16,11 @@ const Container = styled.section`
   }
 `;
 
+const Wrapper = styled.section<{ position: number }>`
+  position: ${({ position }) => position > 100 && 'fixed'};
+  top: ${({ position }) => position > 100 && '120px'};
+`;
+
 const TagHeader = styled.h4`
   width: 200px;
   padding: 5px 0;
@@ -23,7 +28,7 @@ const TagHeader = styled.h4`
   font-size: 16px;
 `;
 
-const TagBody = styled.ul<{ position: number }>`
+const TagBody = styled.ul`
   width: 200px;
   color: rgb(134, 142, 150);
   line-height: 1.5;
@@ -33,8 +38,7 @@ const TagBody = styled.ul<{ position: number }>`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  position: ${({ position }) => position > 100 && 'fixed'};
-  top: ${({ position }) => position > 100 && '120px'};
+
   @media (max-width: 500px) {
     width: 240px;
   }
@@ -52,4 +56,4 @@ const TagItem = styled.li<{ isCurrent: boolean }>`
   font-weight: bold;
 `;
 
-export default { Container, TagHeader, TagBody, TagItem };
+export default { Container, Wrapper, TagHeader, TagBody, TagItem };

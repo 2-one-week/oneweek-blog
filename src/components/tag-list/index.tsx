@@ -19,27 +19,29 @@ const TagList: FC<ITagList> = ({ currentTag, tags, onClickTag }) => {
   const [scorllState] = useScroll();
   return (
     <S.Container>
-      <S.TagHeader>태그 목록</S.TagHeader>
-      <S.TagBody position={scorllState.pageYOffset}>
-        <S.TagItem
-          isCurrent={currentTag === 'Recent' || currentTag === 'ALL'}
-          onClick={() => {
-            onClickTag('ALL');
-          }}
-        >
-          ALL
-        </S.TagItem>
-        {tags.map((tag) => (
+      <S.Wrapper position={scorllState.pageYOffset}>
+        <S.TagHeader>태그 목록</S.TagHeader>
+        <S.TagBody>
           <S.TagItem
-            isCurrent={currentTag === tag.fieldValue}
+            isCurrent={currentTag === 'Recent' || currentTag === 'ALL'}
             onClick={() => {
-              onClickTag(tag.fieldValue);
+              onClickTag('ALL');
             }}
           >
-            {tag.fieldValue}({tag.totalCount})
+            ALL
           </S.TagItem>
-        ))}
-      </S.TagBody>
+          {tags.map((tag) => (
+            <S.TagItem
+              isCurrent={currentTag === tag.fieldValue}
+              onClick={() => {
+                onClickTag(tag.fieldValue);
+              }}
+            >
+              {tag.fieldValue}({tag.totalCount})
+            </S.TagItem>
+          ))}
+        </S.TagBody>
+      </S.Wrapper>
     </S.Container>
   );
 };
