@@ -35,12 +35,12 @@ draft: false
     - 패스워드 분실시 새로 설치가 빠름 (클라우드라서)
     - OS 버전과 MySQL 버전에 따라 설치방법이 달라질 수 있으므로 검색을 활용한다.
 
-    ```jsx
-    1. sudo apt install mysql-server
-    2. sudo systemctl start mysql
-    3. sudo mysql_secure_installation
-    	- mysql_secure_installation 시 읽어보고 yes or no를 누르기
-    ```
+```jsx
+1. sudo apt install mysql-server
+2. sudo systemctl start mysql
+3. sudo mysql_secure_installation
+    - mysql_secure_installation 시 읽어보고 yes or no를 누르기
+```
 
 2. Mysql 활용
     1. Mysql 접속
@@ -62,19 +62,19 @@ draft: false
         - quit
     8. Mysql 명령어
 
-        ```jsx
-        1. Mysql 시작
-        	service mysql start
+```jsx
+1. Mysql 시작
+    service mysql start
 
-        2. Mysql 정지
-        	service mysql stop
+2. Mysql 정지
+    service mysql stop
 
-        3. Mysql 재시작
-        	service mysql restart
+3. Mysql 재시작
+    service mysql restart
 
-        4. Mysql 상태확인
-        	service mysql status
-        ```
+4. Mysql 상태확인
+    service mysql status
+```
 
 3. local Mysql workbench에서 원격 접속하기 (mac인 경우 sequel ace 사용)
     - Sequel ace 설치
@@ -84,16 +84,16 @@ draft: false
 
 4. 데이터 베이스
 
-    ```jsx
-    1. database 만들기
-    	create database 'db 이름';
+```jsx
+1. database 만들기
+    create database 'db 이름';
 
-    2. database 조회
-    	show databases;
+2. database 조회
+    show databases;
 
-    3. db 선택
-    	use 'db 이름';
-    ```
+3. db 선택
+    use 'db 이름';
+```
 
 5. DB table (예시)
 
