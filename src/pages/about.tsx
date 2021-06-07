@@ -3,7 +3,12 @@ import { graphql } from 'gatsby';
 
 import SEO from '@components/seo';
 import Layout from '@containers/layout';
-import { PostContent } from '@containers/post/components';
+import {
+  PostTitle,
+  PostDate,
+  PostDivider,
+  PostContent,
+} from '@containers/post/components';
 
 export default ({ data }: any) => {
   const { node: resume } = data.allMarkdownRemark.edges[0];
@@ -11,6 +16,9 @@ export default ({ data }: any) => {
   return (
     <Layout path={'resume'}>
       <SEO title="Resume" url="https://2oneweek.dev" />
+      <PostTitle title={resume.frontmatter.title} />
+      <PostDate date={resume.frontmatter.date} />
+      <PostDivider />
       <PostContent html={resume.html} />
     </Layout>
   );
