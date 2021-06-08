@@ -27,7 +27,8 @@ const HeaderContainer = styled.section<{ path: string }>`
   a {
     margin: 0 20px;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
+    max-width: ${({ theme: { sizes } }) => sizes.smallContainer};
     margin: 0;
     a {
       display: flex;
@@ -40,7 +41,7 @@ const HeaderContainer = styled.section<{ path: string }>`
 
 const HamBurgerIconWrapper = styled.section`
   display: none;
-  @media (max-width: 500px) {
+  @media (max-width: 640px) {
     display: block;
   }
 `;
@@ -58,7 +59,7 @@ const changePageAnimation = keyframes`
 
 const TagContainer = styled.section<{ isOpenTags: boolean }>`
   display: none;
-  @media (max-width: 500px) {
+  @media (max-width: 640px) {
     display: ${({ isOpenTags }) => (isOpenTags ? 'block' : 'none')};
     width: 260px;
     height: 100vh;

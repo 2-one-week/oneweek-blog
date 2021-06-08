@@ -6,6 +6,11 @@ const StyledPostCardWrapper = styled.ul`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  max-width: ${({ theme: { sizes } }) => sizes.bigContainer};
+
+  @media (max-width: 966px) {
+    max-width: ${({ theme: { sizes } }) => sizes.smallContainer};
+  }
 `;
 
 const PostCardWrapper: FC = ({ children }) => {
