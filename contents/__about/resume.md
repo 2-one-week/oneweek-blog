@@ -1,11 +1,8 @@
 ---
-title: 'Category Test1'
+title: 안녕하세요, 이한주입니다.
 date: 2020-07-03 16:21:13
 draft: false
 ---
-
-    
-# 안녕하세요. 이한주입니다.
 
 # Profile
 
