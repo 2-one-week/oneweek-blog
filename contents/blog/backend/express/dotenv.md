@@ -1,7 +1,7 @@
 ---
 title: Express에서 환경변수 설정하기
 thumbnail: 
-date: 2021-06-08 12:00:00
+date: 2020-08-01 12:00:00
 category: Dotenv
 tags: [Express, Dotenv]
 draft: false

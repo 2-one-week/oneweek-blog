@@ -1,7 +1,7 @@
 ---
 title: Sequelize ORM
 thumbnail: 
-date: 2021-06-08 12:00:00
+date: 2020-10-31 12:00:00
 category: Sequelize
 tags: [MySQL, Sequelize]
 draft: false
@@ -19,14 +19,14 @@ ORM : Object Relational Mapping
 
 ### **패키지 설치**
 
-```
+```bash
 $ npm i sequelize sequelize-cli mysql2
 
 ```
 
 ### **sequelize 초기화**
 
-```
+```bash
 $ npx sequelize init
 
 ```
@@ -41,7 +41,7 @@ $ npx sequelize init
 - `models/index.js` 에 있는 sequelize 가져와서
 - `sequelize.sync()`로 연결
 
-```
+```javascript
 const { sequelize } = require("./models");
 sequelize
     .sync({ force: false })
@@ -54,7 +54,7 @@ sequelize
 
 `App.js` 실행시 아래와 같이 뜨면 연결 성공
 
-```
+```javascript
 # sequelize에서 test query 날림
 Executing (default): SELECT 1+1 AS result
 DB 연결 성공!
@@ -79,7 +79,7 @@ DB에 Table 생성하는 방법
     - datetime -> date
     - date -> dateonly
 
-```
+```javascript
 module.exports = class User extends Sequelize.Model {
     static init(sequelize) {
         // super.init( '컬럼 정보', '테이블/모델 정보' )
@@ -142,7 +142,7 @@ module.exports = class User extends Sequelize.Model {
 - 반대 입장에서는 `db.Comment.belongsTo(db.User)`
 - `belongsTo`가 있는 테이블에 컬럼이 생김
 
-```
+```javascript
 // user.js
 
 static associate(db) {
@@ -154,7 +154,7 @@ static associate(db) {
 
 ```
 
-```
+```javascript
 // comment.js
 
 static associate(db) {
@@ -173,7 +173,7 @@ ex. User - UserInfo
 - UserInfo 내용이 많은 경우 빠른 검색을 위해 일부러 나누는 경우 있음
 - 빈번, 중요도, 보안 등 목적으로 하나의 table을 두 개 이상 table로 나눌 수 있음
 
-```
+```javascript
 db.User.hasOne(db.UserInfo, { foreignKey: "UserId", sourceKey: "id" });
 db.UserInfo.belongsTo(db.User, { foreignKey: "UserId", targetKey: "id" });
 
@@ -186,7 +186,7 @@ ex. 게시글 - 해시태그
 - DB 특성상 N:M 관계는 중간 table 필요
 - sequelize에서 중간 table 자동 생성; `through` 옵션
 
-```
+```javascript
 db.Post.belongsToMany(db.Hashtag, { through: "PostHashtag" });
 db.Hashtag.belongsToMany(db.Post, { through: "PostHashtag" });
 
@@ -198,7 +198,7 @@ db.Hashtag.belongsToMany(db.Post, { through: "PostHashtag" });
 
 ### **INSERT, SELECT**
 
-```
+```javascript
 INSERT INTO test.users (name, age, married, comment) VALUES ('gitgitwi', 30, 1, '아싸 1빠');
 
 SELECT * FROM test.users;
@@ -207,7 +207,7 @@ SELECT name, married FROM test.users;
 
 ```
 
-```
+```javascript
 User.create({
     name: "gitgitwi",
     age: 30,
@@ -225,14 +225,14 @@ User.findAll({
 
 ### **Conditional Statement**
 
-```
+```sql
 SELECT name, age FROM test.users WHERE married=1 AND age>30;
 
 SELECT name, age FROM users WHERE married=0 OR age>30;
 
 ```
 
-```
+```javascript
 const { Op } = require("sequelize");
 
 User.findAll({
@@ -263,7 +263,7 @@ User.findAll({
 
 ### **Order by**
 
-```
+```sql
 SELECT id, name FROM users ORDER BY age DESC;
 SELECT id, name FROM users ORDER BY age DESC LIMIT 1;
 SELECT id, name FROM users ORDER BY age DESC LIMIT 1 OFFSET 1;
@@ -275,7 +275,7 @@ SELECT id, name FROM users ORDER BY age DESC LIMIT 1 OFFSET 1;
 - 정렬 조건을 여러개 사용 가능
 - ex.
 
-```
+```javascript
 order: [
     ["age", "DESC"],
     ["createdAt", "asc"],
@@ -283,7 +283,7 @@ order: [
 
 ```
 
-```
+```javascript
 User.findAll({
     attributes: ["id", "name"],
     order: [["age", "DESC"]],
@@ -306,13 +306,13 @@ User.findAll({
 
 ### **Update, Delete**
 
-```
+```sql
 UPDATE test.users SET comment='내용이 바뀐다' WHERE id=2;
 DELETE FROM test.users WHERE id=2;
 
 ```
 
-```
+```javascript
 User.update(
     {
         comment: "내용이 바뀐다",
@@ -342,7 +342,7 @@ User.destroy({
 - `include`로 `JOIN`과 비슷한 기능 수행 가능
     - `include`는 한번에 요청하는 대신 성능 문제 발생 가능
 
-```
+```javascript
 // const user = await User.findOne({});
 // console.log(user.nickname);
 
@@ -366,14 +366,14 @@ console.log(comments);
 
 N:M 모델인 경우
 
-```
+```javascript
 db.sequelize.models.PostHashTag;
 
 ```
 
 `as`로 모델 별칭 등록
 
-```
+```javascript
 // 관계 설정시 `as 별칭`으로 등록
 db.User.hasMany(db.Comment, {
     foreignKey: "comment",
@@ -389,7 +389,7 @@ console.log(comments);
 
 `include` + `where` + `attributes`
 
-```
+```javascript
 const user = await User.findOne({
     include: [
         {
@@ -414,7 +414,7 @@ const comments = await user.getComments({
 
 생성 query
 
-```
+```javascript
 const user = await User.findOne({
     where: { id: req.body.id },
 });
@@ -431,7 +431,7 @@ await user.addComment(comment.id);
 
 여러개 추가할 경우 배열 사용
 
-```
+```javascript
 const comment1 = await Comment.create();
 const comment2 = await Comment.create();
 
@@ -443,6 +443,6 @@ await user.addComment([comment1, comment2]);
 
 ### **직접 SQL 사용해야 하는 경우**
 
-```
+```javascript
 const [result, metadata] = await sequelize.query("SELECT * FROM comments");
 ```

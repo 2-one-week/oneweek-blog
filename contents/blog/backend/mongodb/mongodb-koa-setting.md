@@ -1,7 +1,7 @@
 ---
 title: koa, mongoDB를 적용한 개발 환경 설정하기
 thumbnail:
-date: 2020-09-21 18:00:00
+date: 2021-03-04 18:00:00
 category: Backend
 tags: [MongoDB, Koa]
 draft: false
@@ -16,19 +16,19 @@ draft: false
 
 ### (1) 패키지 정보 생성
 
-```
+```bash
 npm init --y
 
 ```
 
 ### (2) ESLint & Prettier 설정
 
-```
+```bash
 npm i -D eslint eslint-config-prettier
 
 ```
 
-```
+```javascript
 // .eslintrc.js
 module.exports = {
     "env": {
@@ -59,7 +59,7 @@ module.exports = {
 
 ```
 
-```
+```json
 //.prettierrc
 {
   "singleQuote": true,
@@ -77,12 +77,12 @@ module.exports = {
 > express 프레임워크와 대체적으로 비슷한 구조를 보임
 >> req,res 대신에 `ctx` 사용한다
 
-```
+```bash
 npm i koa koa-router koa-bodyparser
 
 ```
 
-```
+```javascript
 src/index.js
 require('dotenv').config();
 
@@ -105,7 +105,7 @@ app.listen(port, () => {
 
 ```
 
-```
+```javascript
 // api/index.js
 const Router = require('koa-router');
 
@@ -123,7 +123,7 @@ module.exports = api;
 
 - > [brew](https://brew.sh/index_ko)가 이미 설치 되어있어야함.
 
-```
+```bash
 brew tap mongodb/brew
 brew install mongodb-community@4.2
 sudo mkdir -p /Users/[username]/data/db
@@ -134,12 +134,12 @@ sudo mkdir -p /Users/[username]/data/db
 
 - > Mongoose 는 MongoDB 기반 ODM (Object Data Modelling) 라이브러리이며, 스키마형태로 데이터를 관리할 수 있게 도와주는 역할
 
-```
+```bash
 npm i dotenv mongoose
 
 ```
 
-```
+```bash
 //.env.sample
 PORT =
 SOCKET_PORT =
@@ -150,7 +150,7 @@ DB_DATABASE =
 
 ```
 
-```
+```javascript
 // init/dbconnect.ts
 import mongoose from 'mongoose';
 const { DB_ID, DB_PW, DB_HOST, DB_DATABASE } = process.env;

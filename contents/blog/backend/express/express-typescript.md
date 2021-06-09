@@ -1,7 +1,7 @@
 ---
 title: Express-TypeScript 설정
 thumbnail: 
-date: 2021-06-08 12:00:00
+date: 2020-10-08 12:00:00
 category: Sequelize
 tags: [Express, TypeScript]
 draft: false

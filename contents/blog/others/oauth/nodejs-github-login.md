@@ -1,9 +1,9 @@
 ---
 title: Node.js github login
 thumbnail: 
-date: 2021-06-08 12:00:00
+date: 2020-08-27 12:00:00
 category: OAuth
-tags: [Github, OAuth]
+tags: [OAuth]
 draft: false
 ---
 

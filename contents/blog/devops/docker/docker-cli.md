@@ -7,7 +7,7 @@ tags: [Docker]
 draft: false
 ---
 
-## 📕 docker run
+## docker run
 
 ### → Run a command in a new container
 
@@ -23,7 +23,7 @@ docker run hello world
 
 → **<image name>** : Name of image to use for this container
 
-## 📗 docker ps
+## docker ps
 
 ### → **List all running containers**
 
@@ -34,7 +34,7 @@ docker ps
 docker ps --all
 ```
 
-## 📘 docker create & start
+## docker create & start
 
 ### → **docker run** = `docker create` + `docker start`
 
@@ -54,7 +54,7 @@ docker create hello-world
 docker start hello-world
 ```
 
-## 📙 docker logs
+## docker logs
 
 ### → Fetch the logs of a container
 
@@ -70,13 +70,13 @@ docker logs --follow
 docker system prune
 ```
 
-## 📒 docker stop & kill
+## docker stop & kill
 
-### → docker stop
+### docker stop
 
      **SIGTERM signal**을 보낸 후, **10초 뒤**에 **SIGKILL signal**을 보내어 컨테이너를 죽임
 
-### → docker kill
+### docker kill
 
      **SIGKILL signal**을 보내 컨테이너를 죽임
 
@@ -88,7 +88,7 @@ docker stop hello world
 docker kill hello world
 ```
 
-## 📑 docker exec
+## docker exec
 
 ### → Run a command in a running container
 
