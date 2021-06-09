@@ -8,6 +8,8 @@
 
 ### 개인 블로그 관리를 위한 레포입니다.
 
+### 비슷한 블로그를 개발하고 싶으시면, [Gatsby Starter Oneweek](https://github.com/2-one-week/gatsby-starter-oneweek)을 참고해주세요.
+
 ### 기술스택
 -   gatsby
     -   gatsby plugins
