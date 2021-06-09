@@ -6,6 +6,13 @@ module.exports = {
     DEV_SSR: true,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-gtag',
+      options: {
+        trackingId: 'G-Y10F2TZ3DQ',
+        head: true,
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -163,14 +170,6 @@ module.exports = {
             sitemap: 'https://2oneweek.dev/sitemap.xml',
           },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'G-Y10F2TZ3DQ',
-        head: true,
-        anonymize: true,
       },
     },
     {

@@ -18,3 +18,13 @@
     -   react-dom
     -   react-helmet
 -   styled-components
+
+<div align="center">
+  <sub>
+    <sup>Project by 
+      <a href="https://github.com/2-one-week">
+        @2-one-week
+      </a>
+    </sup>
+  </sub>
+</div>
