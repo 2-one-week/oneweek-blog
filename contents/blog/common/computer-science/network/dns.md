@@ -4,7 +4,7 @@ thumbnail: ./images/dns/thumbnail.png
 date: 2020-08-22 12:00:00
 category: CS
 tags: [Network]
-draft: true
+draft: false
 ---
 
 # Domain
