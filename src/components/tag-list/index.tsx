@@ -30,9 +30,10 @@ const TagList: FC<ITagList> = ({ currentTag, tags, onClickTag }) => {
           >
             ALL
           </S.TagItem>
-          {tags.map((tag) => (
+          {tags.map((tag, index) => (
             <S.TagItem
               isCurrent={currentTag === tag.fieldValue}
+              key={index}
               onClick={() => {
                 onClickTag(tag.fieldValue);
               }}

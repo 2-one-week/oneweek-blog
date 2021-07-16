@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useRef, useEffect } from 'react';
 
 import SEO from '@components/seo';
 import {
@@ -18,7 +18,11 @@ const CategoryPage: FC = () => {
 
   const [posts, setPosts] = useState<IPost[]>([]);
   const [categories, setCategories] = useState<ICategory[]>([]);
+  const [currentPosts, setCurrentPosts] = useState<IPost[]>([]);
   const [currentCategory, setCurrentCategory] = useState<string>(ALL);
+  const [postCounts, setPostCounts] = useState<number>(10);
+
+  const lastPost = useRef<HTMLLIElement>(null);
 
   const handleResetCategory = () => {
     setCurrentCategory(ALL);
@@ -32,12 +36,39 @@ const CategoryPage: FC = () => {
     if (edges && groupByCategory) {
       const filteredEdges = edges.filter(
         ({ node }: any) =>
-          !node.frontmatter.draft && !!node.frontmatter.category,
+          !node.frontmatter.draft &&
+          !!node.frontmatter.category &&
+          !node.frontmatter.category.includes('resume'),
       );
       setPosts(filteredEdges);
       setCategories(groupByCategory);
     }
   }, [edges, groupByCategory]);
+
+  useEffect(() => {
+    if (posts.length > 0) {
+      setCurrentPosts(posts.slice(0, postCounts));
+    }
+  }, [postCounts, posts]);
+
+  useEffect(() => {
+    let observer: IntersectionObserver;
+    if (lastPost.current) {
+      observer = new IntersectionObserver(
+        (entries: IntersectionObserverEntry[]) => {
+          if (entries[0].intersectionRatio <= 0) return;
+          setPostCounts(postCounts + 10);
+          observer.disconnect();
+        },
+        {
+          root: null,
+          threshold: 0.3,
+        },
+      );
+      observer.observe(lastPost.current as Element);
+    }
+    return () => observer && observer.disconnect();
+  }, [posts, currentPosts, postCounts]);
 
   return (
     <Layout path="category">
@@ -65,17 +96,21 @@ const CategoryPage: FC = () => {
         ))}
       </CategoryListWrapper>
       <ul>
-        {posts
-          .filter((post) => {
-            if (currentCategory !== ALL) {
-              return post.node.frontmatter.category === currentCategory;
-            } else {
-              return true;
-            }
-          })
-          .map(({ node }: IPost) => (
-            <CategoryCard key={node.id} node={node} />
-          ))}
+        {currentCategory === ALL
+          ? currentPosts.map(({ node }: IPost) => (
+              <CategoryCard ref={lastPost} key={node.id} node={node} />
+            ))
+          : posts
+              .filter((post) => {
+                if (currentCategory !== ALL) {
+                  return post.node.frontmatter.category === currentCategory;
+                } else {
+                  return true;
+                }
+              })
+              .map(({ node }: IPost) => (
+                <CategoryCard ref={lastPost} key={node.id} node={node} />
+              ))}
       </ul>
     </Layout>
   );

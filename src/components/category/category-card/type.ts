@@ -11,4 +11,5 @@ export interface ICategoryCard {
       date: string;
     };
   };
+  ref: React.Ref<HTMLLIElement>;
 }

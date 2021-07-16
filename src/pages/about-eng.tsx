@@ -21,11 +21,11 @@ export default ({ data }: any) => {
   const { node: resume } = data.allMarkdownRemark.edges[0];
 
   return (
-    <Layout path={'resume-ko'}>
+    <Layout path={'resume-eng'}>
       <SEO title="Resume" url="https://2oneweek.dev" />
       <StyledResumeTitle>
         <PostTitle title={resume.frontmatter.title} />
-        <Link to={'/about-eng'}> English Resume</Link>
+        <Link to={'/about'}> 한글 이력서</Link>
       </StyledResumeTitle>
       <PostDate date={resume.frontmatter.date} />
       <PostDivider />
@@ -37,7 +37,7 @@ export default ({ data }: any) => {
 export const pageQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: "resume-ko" } } }
+      filter: { frontmatter: { category: { eq: "resume-eng" } } }
     ) {
       edges {
         node {

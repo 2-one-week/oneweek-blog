@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface IPostCard {
   node: {
     excerpt: string;
@@ -20,4 +22,5 @@ export interface IPostCard {
     };
     id: string;
   };
+  ref?: React.Ref<HTMLLIElement>;
 }
