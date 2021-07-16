@@ -2,8 +2,8 @@
 title: Linux History
 thumbnail: 
 date: 2020-08-19 12:00:00
-category: Linux
-tags: [Linux]
+category: Ubuntu
+tags: [Ubuntu]
 draft: false
 ---
 
