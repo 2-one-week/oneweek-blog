@@ -18,7 +18,7 @@ const Container = styled.section`
 
 const Wrapper = styled.section<{ position: number }>`
   position: ${({ position }) => position > 100 && 'fixed'};
-  top: ${({ position }) => position > 100 && '120px'};
+  top: ${({ position }) => position > 100 && '40px'};
   overflow: hidden auto;
 `;
 
