@@ -40,8 +40,11 @@ const CategoryPage: FC = () => {
           !!node.frontmatter.category &&
           !node.frontmatter.category.includes('resume'),
       );
+      const filteredGroupByCategory = groupByCategory.filter(
+        ({ fieldValue }: any) => !fieldValue.includes('resume'),
+      );
       setPosts(filteredEdges);
-      setCategories(groupByCategory);
+      setCategories(filteredGroupByCategory);
     }
   }, [edges, groupByCategory]);
 

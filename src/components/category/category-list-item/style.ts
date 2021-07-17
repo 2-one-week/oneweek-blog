@@ -18,6 +18,7 @@ const Container = styled.li<{ isCurrent: boolean }>`
 
   p {
     font-size: 14px;
+    white-space: nowrap;
   }
 
   &:hover {
