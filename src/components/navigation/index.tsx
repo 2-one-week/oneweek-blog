@@ -24,7 +24,7 @@ const Navigation: FC<INavigation> = ({
       <S.TagListWrapper>
         <TagList
           currentTag={tagName}
-          tags={tags.filter((tag) => tag.totalCount > 0)}
+          tags={tags.filter((tag) => tag.totalCount > 1)}
           onClickTag={onClickTag}
         />
       </S.TagListWrapper>
