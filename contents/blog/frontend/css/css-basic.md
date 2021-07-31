@@ -248,7 +248,7 @@ div {
 
 ### fixed
 
-```CSS
+```css
 .container {
     left: 20px;
     top: 20px;
@@ -260,7 +260,7 @@ div {
 
 # sticky
 
-```CSS
+```css
 .container {
     left: 20px;
     top: 20px;
