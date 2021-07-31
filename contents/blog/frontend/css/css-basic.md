@@ -206,7 +206,7 @@ div {
 
 - `top`,`left`,`right`,`bottom`,`top-left`, `top-right`, `bottom-left`, `bottom-right`를 이용하여 상자의 Position을 바꿀 수 있다.
 
-```CSS
+```css
 .container {
     left: 20px;
     top: 20px;
@@ -222,7 +222,7 @@ div {
 
 ### relative
 
-```CSS
+```css
 .container {
     left: 20px;
     top: 20px;
@@ -235,7 +235,7 @@ div {
 
 ### absolute
 
-```CSS
+```css
 .container {
     left: 20px;
     top: 20px;
