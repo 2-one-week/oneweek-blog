@@ -22,11 +22,7 @@ const Navigation: FC<INavigation> = ({
         <S.H1>About</S.H1>
       </Link>
       <S.TagListWrapper>
-        <TagList
-          currentTag={tagName}
-          tags={tags.filter((tag) => tag.totalCount > 1)}
-          onClickTag={onClickTag}
-        />
+        <TagList currentTag={tagName} tags={tags} onClickTag={onClickTag} />
       </S.TagListWrapper>
     </S.Navigation>
   );
