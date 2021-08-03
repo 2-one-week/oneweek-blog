@@ -77,7 +77,7 @@ const IndexPage: FC = () => {
       <SEO title="Home" url="https://2oneweek.dev" />
       <Navigation
         tagName={currentTag}
-        tags={tags}
+        tags={tags.filter((tag) => tag.totalCount > 1)}
         onClickTag={handleClickTags}
       />
       <PostCardWrapper>
