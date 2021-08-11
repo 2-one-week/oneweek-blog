@@ -71,7 +71,7 @@ const IndexPage: FC = () => {
     <Layout
       path="home"
       tagName={currentTag}
-      tags={tags}
+      tags={tags.filter((tag) => tag.totalCount > 1)}
       onClickTag={handleClickTags}
     >
       <SEO title="Home" url="https://2oneweek.dev" />

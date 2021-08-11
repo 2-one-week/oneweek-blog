@@ -88,16 +88,19 @@ const PostContentWrapper = styled.article`
   ol {
     margin: 8px 25px;
     line-height: 1.8;
+    font-size: 14px;
   }
 
   ul {
     margin: 8px 25px;
     line-height: 1.8;
+    font-size: 14px;
   }
 
   li {
     margin: 4px 0;
     line-height: 1.8;
+    font-size: 14px;
   }
 
   deckgo-highlight-code {
