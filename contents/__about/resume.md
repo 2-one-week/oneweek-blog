@@ -14,9 +14,7 @@ draft: false
 
 ## Contact
 
-- **Email**   | dlgkswn885@korea.ac.kr
 - **Github** | 🔗 **(링크)** [https://github.com/2-one-week](https://github.com/2-one-week)
-- **Phone**  | +82 10-9882-9405
 
 ---
 
@@ -45,8 +43,6 @@ draft: false
     - 3주 팀 프로젝트 (Issue Tracker), 5주 팀 프로젝트 (Naver 기업 과제)
 
 ## 고려대학교 산업경영공학부
-
-학점 (3.95/4.5)
 
 2015.03~2021.08
 
